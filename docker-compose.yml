@@ -6,7 +6,11 @@ services:
     container_name: nginx
     ports:
       - "80:80"
+    volumes:
+      - ./web:/var/www/html
   login:
     build: login/.
     container_name: login
+    volumes:
+      - ./web:/var/www/html
 
