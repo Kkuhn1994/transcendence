@@ -1,0 +1,12 @@
+version: "3.8"
+
+services:
+  nginx:
+    build: nginx/.
+    container_name: nginx
+    ports:
+      - "80:80"
+  login:
+    build: login/.
+    container_name: login
+
