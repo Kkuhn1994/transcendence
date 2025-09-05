@@ -9,8 +9,28 @@ services:
     volumes:
       - ./web:/var/www/html
   login:
-    build: login/.
+    build: login_page/.
     container_name: login
     volumes:
       - ./web:/var/www/html
+  database:
+    build: database/.
+    container_name: database
+    volumes:
+      - sqlite-data:/app/data
+  login_service:
+    build: login_service/.
+    container_name: login_service
+    volumes:
+      - sqlite-data:/app/data
+
+
+volumes:
+  sqlite-data:
+    driver: local
+
+networks:
+  my-network:
+    driver: bridge
+
 
