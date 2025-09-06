@@ -57,10 +57,9 @@
             <button type="submit" class="login-button">Einloggen</button>
         </form>
     </div>
-
+    <div id="responseMessage"></div>
 </body>
 <script>
-    alert('hello');
       document.getElementById('loginForm').addEventListener('submit', function(event) {
     event.preventDefault(); // Verhindert das Standardverhalten des Formulars
 
@@ -68,23 +67,22 @@
       username: event.target.username.value,
       password: event.target.password.value,
     };
-    
-    alert(JSON.stringify(data));
-    fetch('/login.php', {
+  
+    fetch('/login/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(data),
     })
-    // .then(response => response.json())
-    // .then(data => {
-    //   if (data.success) {
-    //     alert('Erfolgreich eingeloggt!');
-    //   } else {
-    //     alert('Login fehlgeschlagen!');
-    //   }
-    // })
+    .then(response => response.json())
+        .then(data => {
+            // Finde das Element, in dem die Antwort angezeigt werden soll
+            const responseMessageElement = document.getElementById('responseMessage');
+                responseMessageElement.style.color = 'green';
+                responseMessageElement.textContent = data.message;
+
+        })
     .catch(error => {
       console.error('Fehler beim Senden der Anfrage:', error);
     });

@@ -7,9 +7,13 @@ RUN apt-get update && apt-get install -y sqlite3
 # Erstelle das Verzeichnis für die Datenbankdatei
 RUN mkdir -p /app
 
-# Erstelle eine SQLite-Datenbank-Datei und eine Beispiel-Tabelle
-RUN sqlite3 /app/database.db "CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, name TEXT);"
+# Erstelle das Verzeichnis für die Datenbankdatei
+RUN mkdir -p /app/data
 
+# Erstelle eine SQLite-Datenbank-Datei und eine Beispiel-Tabelle
+RUN sqlite3 /app/data/database.db "CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, name TEXT);"
+# Ändere die Berechtigungen für das Verzeichnis und die Datenbankdatei
+RUN chown -R www-data:www-data /app/data && chmod -R 755 /app/data
 # Setze das Arbeitsverzeichnis
 WORKDIR /app
 

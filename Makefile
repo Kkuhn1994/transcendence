@@ -28,6 +28,7 @@ set_up_volume:
 
 	@echo "Kompilierung abgeschlossen."	# Standardbefehl: Container starten
 up:
+	docker volume create sqlite-data
 	$(DOCKER_COMPOSE) -f $(COMPOSE_FILE) up --build -d
 
 

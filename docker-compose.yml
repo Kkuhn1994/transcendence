@@ -30,15 +30,15 @@ services:
     volumes:
       - sqlite-data:/app/data
       - ./web:/var/www/html      
-    ports:
-      - "9000:9000"
+    expose:
+      - "9000"
     networks:
       - my-network
 
 
 volumes:
   sqlite-data:
-    driver: local
+    external: true 
 
 networks:
   my-network:
