@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "ES6",          // Stelle sicher, dass die Ausgabe auf ES6 (ES2015) eingestellt ist
+    "lib": ["ES2015", "DOM"], // Füge die notwendigen Bibliotheken für Promise und async/await hinzu
+    "module": "commonjs",
+    "strict": true,           // Optional: Aktiviert die strenge Typprüfung
+    "esModuleInterop": true,
+    "skipLibCheck": true
+  },
+  "include": [
+    "web/**/*"  // Gibt an, welche Dateien TypeScript kompilieren soll
+  ]
+}
