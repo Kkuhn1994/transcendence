@@ -7,12 +7,12 @@ all: set_up_volume  up
 
 set_up_volume:
 	@echo "Kompiliere TypeScript zu JavaScript..."
-	@curl -fsSL https://download.docker.com/linux/debian/gpg | sudo tee /etc/apt/trusted.gpg.d/docker.asc
+# 	@curl -fsSL https://download.docker.com/linux/debian/gpg | sudo tee /etc/apt/trusted.gpg.d/docker.asc
 
 	# Überprüfe, ob Node.js und npm installiert sind
-	@sudo apt install -y nodejs npm
-	@curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
-	@sudo apt install -y nodejs
+# 	@sudo apt install -y nodejs npm
+# 	@curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+# 	@sudo apt install -y nodejs
 	# Überprüfe, ob TypeScript global installiert ist, andernfalls installiere es
 	@npm list -g typescript >/dev/null 2>&1 || { \
 		echo "TypeScript ist nicht installiert. Installiere es..."; \
@@ -21,10 +21,10 @@ set_up_volume:
 
 	# Kompiliere TypeScript zu JavaScript
 	@echo "Kompiliere login_form.ts zu JavaScript..."
-	@tsc web/login_form.ts || { \
-		echo "Fehler beim Kompilieren von TypeScript."; \
-		exit 1; \
-	}
+# 	@tsc web/login_form.ts || { \
+# 		echo "Fehler beim Kompilieren von TypeScript."; \
+# 		exit 1; \
+# 	}
 
 	@echo "Kompilierung abgeschlossen."	# Standardbefehl: Container starten
 up:

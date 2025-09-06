@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background-color: red;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -59,35 +59,4 @@
     </div>
 
 </body>
-<script>
-    alert('hello');
-      document.getElementById('loginForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Verhindert das Standardverhalten des Formulars
-
-    const data = {
-      username: event.target.username.value,
-      password: event.target.password.value,
-    };
-    
-    alert(JSON.stringify(data));
-    fetch('/login.php', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
-    })
-    // .then(response => response.json())
-    // .then(data => {
-    //   if (data.success) {
-    //     alert('Erfolgreich eingeloggt!');
-    //   } else {
-    //     alert('Login fehlgeschlagen!');
-    //   }
-    // })
-    .catch(error => {
-      console.error('Fehler beim Senden der Anfrage:', error);
-    });
-  });
-</script>
 </html>

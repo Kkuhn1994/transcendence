@@ -8,11 +8,17 @@ services:
       - "80:80"
     volumes:
       - ./web:/var/www/html
-  login:
-    build: login_page/.
-    container_name: login
-    volumes:
-      - ./web:/var/www/html
+    networks:
+      - my-network
+    depends_on:
+      - login_service
+  # login:
+  #   build: login_page/.
+  #   container_name: login
+  #   volumes:
+  #     - ./web:/var/www/html
+  #   networks:
+  #     - my-network
   database:
     build: database/.
     container_name: database
@@ -23,6 +29,11 @@ services:
     container_name: login_service
     volumes:
       - sqlite-data:/app/data
+      - ./web:/var/www/html      
+    ports:
+      - "9000:9000"
+    networks:
+      - my-network
 
 
 volumes:
