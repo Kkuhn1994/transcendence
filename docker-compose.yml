@@ -25,8 +25,18 @@ services:
     volumes:
       - sqlite-data:/app/data
   sign_up_service:
-    build: login_service/.
+    build: signUp_service/.
     container_name: sign_up_service
+    volumes:
+      - sqlite-data:/app/data
+      - ./web:/var/www/html      
+    expose:
+      - "9000"
+    networks:
+      - my-network
+  sign_in_service:
+    build: signIn_service/.
+    container_name: sign_in_service
     volumes:
       - sqlite-data:/app/data
       - ./web:/var/www/html      

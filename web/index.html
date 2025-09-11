@@ -48,16 +48,36 @@
     </style>
 </head>
 <body>
-
-    <div class="login-container">
-        <h2>Login</h2>
-        <form id = "loginForm">
-            <input type="text" class="input-field" name="username" placeholder="Benutzername" required>
-            <input type="password" class="input-field" name="password" placeholder="Passwort" required>
-            <button type="submit" class="login-button">Einloggen</button>
-        </form>
-    </div>
+    <nav>
+        <ul>
+            <li><a href="#signUp">Registrieren</a></li>
+            <li><a href="#signIn">Registrieren</a></li>
+        </ul>
+    </nav>
+    <section id="signUp">
+        <div class="login-container">
+            <h2>Registrieren</h2>
+            <form id = "signUpForm">
+                <input type="text" class="input-field" name="username" placeholder="Benutzername" required>
+                <input type="password" class="input-field" name="password" placeholder="Passwort" required>
+                <button type="submit" class="login-button">Registrieren</button>
+            </form>
+        </div>
+    </section>
+    <section id="signIn">
+        <div class="login-container">
+            <h2>Login</h2>
+            <form id = "signInForm">
+                <input type="text" class="input-field" name="username" placeholder="Benutzername" required>
+                <input type="password" class="input-field" name="password" placeholder="Passwort" required>
+                <button type="submit" class="login-button">Einloggen</button>
+            </form>
+        </div>
+    </section>
+   
     <div id="responseMessage"></div>
 </body>
 <script src="signUp.js"></script>
+<script src="signIn.js"></script>
+<script src="routing.js"></script>
 </html>

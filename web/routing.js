@@ -15,4 +15,4 @@ function showSection(sectionId) {
 }
 
 // Standardmäßig die Home-Seite anzeigen
-showSection('signUp');
+showSection('signIn');
