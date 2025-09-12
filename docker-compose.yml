@@ -12,13 +12,15 @@ services:
       - my-network
     depends_on:
       - sign_up_service
-  # login:
-  #   build: login_page/.
-  #   container_name: login
-  #   volumes:
-  #     - ./web:/var/www/html
-  #   networks:
-  #     - my-network
+  login:
+    build: login_page/.
+    container_name: login
+    volumes:
+      - ./web:/var/www/html
+    networks:
+      - my-network
+    ports:
+      - "9000:9000"
   database:
     build: database/.
     container_name: database
