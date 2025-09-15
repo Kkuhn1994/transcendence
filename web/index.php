@@ -85,29 +85,30 @@
             }
             else if($_GET['state'] == 'loggedIn')
             {
+                $cookie = $_COOKIE['usercookie'];
                 $name = $_GET['name'];
-                // $db = new PDO('sqlite:/app/data/database.db'); // Ändere den Pfad nach Bedarf
+                $db = new PDO('sqlite:/app/data/database.db'); // Ändere den Pfad nach Bedarf
                 // // Bereite die SQL-Abfrage vor, um den Benutzer zu speichern
-                // $stmt = $db->prepare("SELECT cookie FROM users WHERE name = ?;");
-                // $stmt->execute([$name]);
-                // $result = $stmt->fetch(PDO::FETCH_ASSOC);
-                // $safed_cookie = $result['cookie'];
-                // if($cookie == $safed_cookie)
-                // {
+                $stmt = $db->prepare("SELECT cookie FROM users WHERE name = ?;");
+                $stmt->execute([$name]);
+                $result = $stmt->fetch(PDO::FETCH_ASSOC);
+                $safed_cookie = $result['cookie'];
+                if($cookie == $safed_cookie)
+                {
                     echo <<<HTML
                         <div class="loggedIn">
                         <h2>Welcome $name</h2>
                         </div>
                     HTML;   
-                // }
-                // else
-                // {
-                //     echo <<<HTML
-                //         <div class="malicious">
-                //         <h2>malicious behaviour suspected</h2>
-                //         </div>
-                //     HTML;   
-                // }
+                }
+                else
+                {
+                    echo <<<HTML
+                        <div class="malicious">
+                        <h2>malicious behaviour suspected</h2>
+                        </div>
+                    HTML;   
+                }
             }
         ?>
 </body>
