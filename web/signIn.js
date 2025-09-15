@@ -4,7 +4,7 @@
 const formData = new FormData();
 formData.append('username', event.target.username.value);
 formData.append('password', event.target.password.value);
-alert('hello');
+
 fetch('/signIn/', {
     method: 'POST',
     headers: {
@@ -16,9 +16,13 @@ fetch('/signIn/', {
     // Find the element to display the response
     const responseMessageElement = document.getElementById('responseMessage');
     responseMessageElement.style.color = 'green';
-    responseMessageElement.textContent = data.message;
+    responseMessageElement.textContent = data.username + data.cookie;
+    document.cookie = 'usercookie=' + data.cookie;
 })
 .catch(error => {
     console.error('Fehler beim Senden der Anfrage:', error);
 });
+alert(1);
+window.location.href = '/?state=loggedIn&name=' + encodeURIComponent(event.target.username.value);
+alert(2);
   });

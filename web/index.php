@@ -65,6 +65,7 @@
                         <button type="submit" class="login-button">Registrieren</button>
                     </form>
                 </div>
+                <p id='responseMessage'></p>  
                 HTML;
             }
             else if($_GET['state'] == 'signIn')
@@ -78,7 +79,35 @@
                         <button type="submit" class="login-button">Einloggen</button>
                     </form>
                     </div>
-                HTML;   
+                    <p id='responseMessage'></p>  
+                HTML;
+                 
+            }
+            else if($_GET['state'] == 'loggedIn')
+            {
+                $name = $_GET['name'];
+                // $db = new PDO('sqlite:/app/data/database.db'); // Ändere den Pfad nach Bedarf
+                // // Bereite die SQL-Abfrage vor, um den Benutzer zu speichern
+                // $stmt = $db->prepare("SELECT cookie FROM users WHERE name = ?;");
+                // $stmt->execute([$name]);
+                // $result = $stmt->fetch(PDO::FETCH_ASSOC);
+                // $safed_cookie = $result['cookie'];
+                // if($cookie == $safed_cookie)
+                // {
+                    echo <<<HTML
+                        <div class="loggedIn">
+                        <h2>Welcome $name</h2>
+                        </div>
+                    HTML;   
+                // }
+                // else
+                // {
+                //     echo <<<HTML
+                //         <div class="malicious">
+                //         <h2>malicious behaviour suspected</h2>
+                //         </div>
+                //     HTML;   
+                // }
             }
         ?>
 </body>

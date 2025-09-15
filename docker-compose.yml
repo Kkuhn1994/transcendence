@@ -17,6 +17,7 @@ services:
     container_name: login
     volumes:
       - ./web:/var/www/html
+      - sqlite-data:/app/data
     networks:
       - my-network
     ports:

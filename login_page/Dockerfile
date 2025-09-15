@@ -5,7 +5,8 @@ RUN apt update && apt install -y \
     lsb-release \
     apt-transport-https \
     ca-certificates \
-    curl
+    curl  
+
 
 RUN curl -sSL https://packages.sury.org/php/README.txt | bash -x
 
