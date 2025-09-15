@@ -54,7 +54,8 @@
             <li><a href="#signIn">Registrieren</a></li>
         </ul>
         <?php
-            if($_POST['state'] == 'signUp')
+        
+            if($_GET['state'] == 'signUp')
             {
              echo <<<HTML
                 <div class="login-container">
@@ -107,8 +108,7 @@
                     </form>
                     </div>
                     <p id='responseMessage'></p>  
-                HTML;
-                 
+                HTML;        
             }
         ?>
 </body>
