@@ -54,7 +54,7 @@
             <li><a href="#signIn">Registrieren</a></li>
         </ul>
         <?php
-            if($_GET['state'] == 'signUp')
+            if($_POST['state'] == 'signUp')
             {
              echo <<<HTML
                 <div class="login-container">
@@ -68,25 +68,10 @@
                 <p id='responseMessage'></p>  
                 HTML;
             }
-            else if($_GET['state'] == 'signIn')
-            {
-                echo <<<HTML
-                    <div class="login-container">
-                    <h2>Login</h2>
-                    <form id = "signInForm">
-                        <input type="text" class="input-field" name="username" placeholder="Benutzername" required>
-                        <input type="password" class="input-field" name="password" placeholder="Passwort" required>
-                        <button type="submit" class="login-button">Einloggen</button>
-                    </form>
-                    </div>
-                    <p id='responseMessage'></p>  
-                HTML;
-                 
-            }
-            else if($_GET['state'] == 'loggedIn')
+            else if($_POST['state'] == 'loggedIn')
             {
                 $cookie = $_COOKIE['usercookie'];
-                $name = $_GET['name'];
+                $name = $_POST['name'];
                 $db = new PDO('sqlite:/app/data/database.db'); // Ändere den Pfad nach Bedarf
                 // // Bereite die SQL-Abfrage vor, um den Benutzer zu speichern
                 $stmt = $db->prepare("SELECT cookie FROM users WHERE name = ?;");
@@ -109,6 +94,21 @@
                         </div>
                     HTML;   
                 }
+            }
+            else
+            {
+                echo <<<HTML
+                    <div class="login-container">
+                    <h2>Login</h2>
+                    <form id = "signInForm">
+                        <input type="text" class="input-field" name="username" placeholder="Benutzername" required>
+                        <input type="password" class="input-field" name="password" placeholder="Passwort" required>
+                        <button type="submit" class="login-button">Einloggen</button>
+                    </form>
+                    </div>
+                    <p id='responseMessage'></p>  
+                HTML;
+                 
             }
         ?>
 </body>

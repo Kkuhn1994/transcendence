@@ -14,7 +14,7 @@ try {
     if(password_verify($password, $passwd))
     {       
         // Den Inhalt mit echo ausgeben
-        $cookie = 'test';
+        $cookie = uniqid('cookie_', true);
         $stmt2 = $db->prepare("UPDATE users SET cookie = ? WHERE name = ?;");
         $stmt2->execute([$cookie, $username]);
         echo json_encode(['username' => $username, 'cookie' => $cookie]);
