@@ -104,6 +104,7 @@
                     <form id = "signInForm">
                         <input type="text" class="input-field" name="username" placeholder="Benutzername" required>
                         <input type="password" class="input-field" name="password" placeholder="Passwort" required>
+                        <input type="otp" class="input-field" name="otp" placeholder="OTP" required>
                         <button type="submit" class="login-button">Einloggen</button>
                     </form>
                     </div>

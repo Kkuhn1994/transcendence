@@ -4,6 +4,7 @@
 const formData = new FormData();
 formData.append('username', event.target.username.value);
 formData.append('password', event.target.password.value);
+formData.append('otp', event.target.otp.value);
 
 fetch('/signIn/', {
     method: 'POST',
